@@ -10,9 +10,14 @@
         var name = document.getElementById("name").value;
         var email = document.getElementById("email").value;
 
-        // Store the user details in local storage
-        localStorage.setItem("userDetailsName", name);
-        localStorage.setItem("userDetailsEmail", email);
+        // Create an object with user details
+        var userDetails = {
+            name: name,
+            email: email
+        };
+
+        // Store the user details object in local storage
+        localStorage.setItem("userDetails", JSON.stringify(userDetails));
         
         alert("Form data stored in local storage.");
     }
