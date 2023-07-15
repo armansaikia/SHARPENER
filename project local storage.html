@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HTML Form</title>
+
+  <script>
+    function storeFormData() {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+
+        // Store the user details in local storage
+        localStorage.setItem("userDetailsName", "Arman");
+        localStorage.setItem("userDetailsEmail", "armansaikia12");
+        
+        alert("Form data stored in local storage.");
+    }
+  </script>
+
+</head>
+<body>
+  <h2>Form</h2>
+
+  <form action="submit-form" method="post" onsubmit="storeFormData();">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+
+    <input type="submit" value="Submit">
+  </form>
+
+</body>
+</html>

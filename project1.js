@@ -24,11 +24,11 @@ function addItem(e) {
     li.className = 'list-group-item';
 
     var newText = document.createTextNode(newItem)
-    var descriptionNode = document.createTextNode("" + description)
+    var descriptionNode = document.createTextNode(description) //added description
   
     // Add text node with input value
     li.appendChild(newText);
-    li.appendChild(de);
+    li.appendChild(descriptionNode);
     
     
 
@@ -79,7 +79,7 @@ function filterItems(e){
     // convert text to lowercase
     var text = e.target.value.toLowerCase();
     // Get lis
-    var items = itemList.getElementsByTagName('li');
+    var items = itemList.getElementsByTagName('li'); //getting all the li tags
     // Convert to an array
     Array.from(items).forEach(function(item){
       var itemName = item.firstChild.textContent;
