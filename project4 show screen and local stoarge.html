@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HTML Form</title>
+
+  <script>
+    function storeFormData(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var phoneNumber = document.getElementById("phone").value;
+
+        // Create an object with user details
+        var userDetails = {
+            name: name,
+            email: email,
+            phoneNumber: phoneNumber
+        };
+
+        // Store the user details object in local storage
+        localStorage.setItem("userDetails", JSON.stringify(userDetails));
+        
+        alert("Form data stored in local storage.");
+        
+        // Display the form data on the screen
+        var output = "Name: " + name + "<br>Email: " + email + "<br>Phone Number: " + phoneNumber;
+        document.getElementById("formData").innerHTML = output;
+    }
+  </script>
+
+</head>
+<body>
+  <h2>Form</h2>
+
+  <form onsubmit="storeFormData(event)">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone" required><br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+  
+  <h2>Form Data</h2>
+  <div id="formData"></div>
+
+</body>
+</html>
+
+
+
