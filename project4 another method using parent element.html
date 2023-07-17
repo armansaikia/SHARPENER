@@ -1,0 +1,61 @@
+
+<!-- FORM USING li tag as parent element and then creating child and then append both-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HTML Form</title>
+</head>
+<body>
+  <h2>Form</h2>
+
+  <form onsubmit="saveToLocalstorage(event)">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="username" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="emailId" required><br><br>
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phonenumber" required><br><br>
+
+    <button>Submit</button>
+  </form>
+
+  <ul id="listOfItems"></ul>
+  
+  <script>
+    function saveToLocalstorage(event) {
+      event.preventDefault();
+
+      var name = event.target.username.value;
+      var email = event.target.emailId.value;
+      var phoneNumber = event.target.phonenumber.value;
+     
+
+    // or we can use this also--------------->
+    // var name = document.getElementById("name").value;
+    //  var email = document.getElementById("email").value;
+    //  var phoneNumber = document.getElementById("phone").value;
+
+      // Create an object with user details
+      var obj = {
+        name: name,
+        email: email,
+        phoneNumber: phoneNumber
+      };
+
+      localStorage.setItem(obj.email, JSON.stringify(obj));
+      showUserOnScreen(obj);
+    }
+
+    function showUserOnScreen(obj) {
+      var parentElement = document.getElementById("listOfItems");
+      var childElement = document.createElement("li");
+      childElement.textContent = obj.name + ' - ' + obj.email + ' - ' + obj.phoneNumber;
+      parentElement.appendChild(childElement);
+    }
+  </script>
+
+</body>
+</html>
+
